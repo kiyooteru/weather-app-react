@@ -8,38 +8,44 @@ export default function Weather() {
         <div className="col-6">
           <form>
             <div className="row">
-              <div className="col-4">
+              <div className="col-8">
                 <input
                   type="search"
-                  placeholder="Enter a city..."
+                  placeholder="🔍 Enter a city..."
                   className="form-control"
+                  autoFocus="on"
                 />
               </div>
-              <div className="col-2">
+              <div className="col-4">
                 <input
                   type="submit"
                   value="Search"
-                  className="btn btn-primary"
+                  className="btn btn-secondary"
                 />
               </div>
             </div>
           </form>
-          <h1>12℃</h1>
-          <p>Monday, 16:00</p>
+          <span className="temperature">12</span>
+          <span className="units">℃</span>
+          <p>
+            <strong>Monday</strong>, 16:00
+          </p>
           <ul>
             <li>Partly cloudy</li>
             <li>Rain - 32%</li>
           </ul>
           <h3>New York, USA</h3>
         </div>
+
         <div className="col-6">
-          <strong>Today's highlights</strong>
+          <p className="highlights">Today's highlights</p>
+
           <div className="row">
-            <div className="col-3">UV Index</div>
-            <div className="col-3">Wind speed</div>
+            <div className="col-4">UV Index</div>
+            <div className="col-4">Wind speed</div>
             <div className="row">
-              <div className="col-3">Humidity</div>
-              <div className="col-3">Visibility</div>
+              <div className="col-4">Humidity</div>
+              <div className="col-4">Visibility</div>
             </div>
           </div>
         </div>
