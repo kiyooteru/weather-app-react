@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     setWeatherData({
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       date: new Date(response.data.time * 1000),
       ready: true,
       temperature: response.data.temperature.current,
@@ -16,90 +18,52 @@ export default function Weather(props) {
       humidity: response.data.temperature.humidity,
       feels: response.data.temperature.feels_like,
       pressure: response.data.temperature.pressure,
-      iconUrl: response.data.condition.icon_url,
     });
+  }
+
+  function search() {
+    const apiKey = "68b2e1953aab6836f24fao7tab3fc064";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
   }
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div className="row">
-          <div className="col-6">
-            <form>
-              <div className="row">
-                <div className="col-8">
-                  <input
-                    type="search"
-                    placeholder="🔍 Enter a city..."
-                    className="form-control"
-                    autoFocus="on"
-                  />
-                </div>
-                <div className="col-4">
-                  <input
-                    type="submit"
-                    value="Search"
-                    className="btn btn-secondary"
-                  />
-                </div>
-              </div>
-            </form>
-            <p>
-              <img src={weatherData.iconUrl} alt={weatherData.description} />
-            </p>
-            <span className="temperature">
-              {Math.round(weatherData.temperature)}
-            </span>
-            <span className="units">℃</span>
-            <p>
-              <strong>
-                <FormattedDate date={weatherData.date} />
-              </strong>
-            </p>
-            <ul>
-              <li className="text-capitalize">{weatherData.description}</li>
-            </ul>
-            <h3>{weatherData.city}</h3>
-          </div>
-
-          <div className="col-6">
-            <p className="highlights">Today's highlights</p>
-            <hr />
-            <div className="row">
-              <div className="col-6">
-                <span className="uv">
-                  Feels like: <p>{Math.round(weatherData.feels)}</p>{" "}
-                </span>
-              </div>
-              <div className="col-6">
-                <span className="windSpeed">
-                  Wind speed:
-                  <p>{weatherData.wind} km/h</p>
-                </span>
-              </div>
-              <div className="row">
-                <div className="col-6">
-                  <span className="humidity">
-                    Humidity: <p>{weatherData.humidity} %</p>
-                  </span>
-                </div>
-                <div className="col-6">
-                  <span className="visibility">
-                    Pressure:
-                    <p>{weatherData.pressure} hA</p>
-                  </span>
-                </div>
-              </div>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-6">
+              <input
+                type="search"
+                placeholder="🔍 Enter a city..."
+                className="form-control"
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
+            </div>
+            <div className="col-4">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-secondary"
+              />
             </div>
           </div>
-        </div>
+        </form>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
-    const apiKey = "68b2e1953aab6836f24fao7tab3fc064";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return "Loading...";
   }
 }
