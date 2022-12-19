@@ -20,10 +20,10 @@
   position: relative;
   top: -25px;
 }
-.Weather .units {
+.Weather .unit {
   color: #333333;
   position: relative;
-  top: -30px;
+  top: -60px;
   margin-left: 5px;
 }
 .Weather p strong {
@@ -32,6 +32,8 @@
 .Weather p {
   margin-left: 20px;
   color: #bec0c2;
+  position: relative;
+  left: 12px;
 }
 .Weather li {
   list-style: none;
@@ -66,10 +68,14 @@
   font-weight: bold;
   color: #727272;
 }
-.Weather .visibility {
+.Weather .pressure {
   position: relative;
   top: 50px;
   font-weight: bold;
   color: #727272;
-  left: 20px;
+  left: 10px;
+}
+.Weather .city {
+  position: relative;
+  left: 25px;
 }

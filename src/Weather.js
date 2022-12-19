@@ -50,13 +50,6 @@ export default function Weather(props) {
                 onChange={handleCityChange}
               />
             </div>
-            <div className="col-4">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-secondary"
-              />
-            </div>
           </div>
         </form>
         <WeatherInfo data={weatherData} />
