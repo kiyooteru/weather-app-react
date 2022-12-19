@@ -17,6 +17,8 @@
   font-size: 64px;
   margin-left: 40px;
   color: #333333;
+  position: relative;
+  top: -25px;
 }
 .Weather .units {
   color: #333333;
@@ -45,4 +47,29 @@
   color: #333333;
   margin-top: 20px;
   font-size: 20px;
+}
+.Weather .uv {
+  position: relative;
+  top: 20px;
+  font-weight: bold;
+  color: #727272;
+}
+.Weather .humidity {
+  position: relative;
+  top: 50px;
+  font-weight: bold;
+  color: #727272;
+}
+.Weather .windSpeed {
+  position: relative;
+  top: 20px;
+  font-weight: bold;
+  color: #727272;
+}
+.Weather .visibility {
+  position: relative;
+  top: 50px;
+  font-weight: bold;
+  color: #727272;
+  left: 20px;
 }
