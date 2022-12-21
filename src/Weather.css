@@ -1,21 +1,42 @@
 .Weather {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   border: 1px solid #bec0c2;
   border-radius: 10px;
   padding: 10px;
   margin: 20px;
+  background-color: #dce2d9;
 }
-.Weather .form-control {
-  border: none;
+.Weather .back {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  position: relative;
+  left: 10px;
+  top: 20px;
+  text-align: center;
+  padding: 0px;
+}
+img {
+  margin: 0px;
+  position: relative;
+  left: -25px;
+}
+.Weather .background {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  position: relative;
+  top: 20px;
+  left: 30px;
+  text-align: center;
 }
 .Weather form {
   margin-top: 10px;
+  width: 100%;
 }
 
 .Weather .temperature {
   font-weight: bold;
   font-size: 64px;
-  margin-left: 40px;
   color: #333333;
   position: relative;
   top: -25px;
@@ -24,13 +45,13 @@
   color: #333333;
   position: relative;
   top: -60px;
-  margin-left: 5px;
 }
-.Weather p strong {
+.Weather .formattedDate {
   color: #7c7c7c;
+  position: relative;
+  top: -20px;
 }
 .Weather p {
-  margin-left: 20px;
   color: #bec0c2;
   position: relative;
   left: 12px;
@@ -38,11 +59,15 @@
 .Weather li {
   list-style: none;
   color: #727272;
+  position: relative;
+  top: -20px;
+  left: -10px;
 }
 .Weather h3 {
-  margin-left: 10px;
   font-weight: bolder;
   color: #333333;
+  position: relative;
+  top: -20px;
 }
 .Weather .highlights {
   font-weight: bold;
@@ -74,8 +99,4 @@
   font-weight: bold;
   color: #727272;
   left: 10px;
-}
-.Weather .city {
-  position: relative;
-  left: 25px;
 }

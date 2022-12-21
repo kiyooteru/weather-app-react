@@ -6,7 +6,7 @@ export default function WeatherInfo(props) {
   return (
     <div className="weatherInfo">
       <div className="row">
-        <div className="col-6">
+        <div className="col-4 back">
           <p>
             <img src={props.data.iconUrl} alt={props.data.description} />
           </p>
@@ -21,7 +21,7 @@ export default function WeatherInfo(props) {
           </ul>
           <h3 className="city">{props.data.city}</h3>
         </div>
-        <div className="col-6">
+        <div className="col-7 background">
           <p className="highlights">Today's highlights</p>
           <hr />
           <div className="row">
