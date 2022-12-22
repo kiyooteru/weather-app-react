@@ -11,11 +11,11 @@ export default function WeatherInfo(props) {
             <img src={props.data.iconUrl} alt={props.data.description} />
           </p>
           <WeatherTemperature celcius={props.data.temperature} />
-          <p className="formattedDate">
+          <span className="formattedDate">
             <strong>
               <FormattedDate date={props.data.date} />
             </strong>
-          </p>
+          </span>
           <ul>
             <li className="text-capitalize">{props.data.description}</li>
           </ul>
@@ -27,7 +27,7 @@ export default function WeatherInfo(props) {
           <div className="row">
             <div className="col-6">
               <span className="uv">
-                Feels like: <p>{Math.round(props.data.feels)}</p>{" "}
+                Feels like: <p>{Math.round(props.data.feels)}°</p>{" "}
               </span>
             </div>
             <div className="col-6">
